@@ -1,0 +1,25 @@
+﻿@page "/"
+
+<PageTitle>Index</PageTitle>
+
+<div style="width: 200px;">
+    <TinyMCE.Blazor.Editor @bind-Value="testStr2" @ref="_testEditor"
+                           Conf="_editorConf" ScriptSrc="lib/tinymce/tinymce.min.js"  />
+    <button onclick="@DisposeEditor">Destroy editor</button>
+</div>
+
+@code {
+    private string testStr2;
+    private TinyMCE.Blazor.Editor _testEditor;
+    private readonly Dictionary<string, object> _editorConf = new()
+    {
+        { "menubar", false },
+        { "plugins", "link image code" },
+        { "toolbar", "undo redo | styleselect | forecolor | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | link image | code" }
+    };
+
+    private void DisposeEditor()
+    {
+        _testEditor.Dispose();
+    }
+}
