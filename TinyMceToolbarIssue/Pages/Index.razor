@@ -5,7 +5,7 @@
 <div style="width: 200px;">
     <TinyMCE.Blazor.Editor @bind-Value="testStr2" @ref="_testEditor"
                            Conf="_editorConf" ScriptSrc="lib/tinymce/tinymce.min.js"  />
-    <button onclick="@DisposeEditor">Destroy editor</button>
+    <button onclick="@(DisposeEditor)" style="margin-top: 12px;">Destroy editor</button>
 </div>
 
 @code {

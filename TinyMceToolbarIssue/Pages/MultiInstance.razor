@@ -1,0 +1,26 @@
+﻿@page "/multi"
+
+<PageTitle>Index</PageTitle>
+
+<div style="width: 200px;">
+    <select id="components" @bind="_componentType">
+        <option value="first">Render first component</option>
+        <option value="second">Render second component</option>
+    </select>
+
+    <div style="margin-top: 12px;">
+        @switch (_componentType)
+        {
+            case "first":
+                <FirstComponent />
+                break;
+            case "second":
+                <SecondComponent />
+                break;
+        }
+    </div>
+</div>
+
+@code {
+    private string _componentType = "first";
+}
